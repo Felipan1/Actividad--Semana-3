@@ -1,0 +1,57 @@
+🧩 Módulo 1: RECONOCIMIENTO LOCAL
+🔧 Objetivo:
+
+Recolectar toda la información posible de la máquina atacante.
+🧪 Comandos:
+
+Get-ComputerInfo
+Get-NetIPAddress
+Get-NetRoute
+Get-Process
+Get-Service
+
+1. Nombre del equipo
+
+DESKTOP-NTCUI6G
+
+2. Usuarios existentes
+
+Usuario actual: DESKTOP-NTCUI6G\SALA
+
+Usuario registrado del sistema: TIC
+
+3. Procesos sospechosos
+
+jusched → Programador de actualizaciones de Java (a veces usado por malware si Java no es necesario).
+
+powershell con uso interactivo (dependería de quién lo ejecutó y para qué).
+
+Múltiples instancias de chrome con alto consumo (puede ser legítimo, pero también síntoma de extensiones maliciosas).
+
+msedgewebview2 en múltiples instancias (legítimo, pero en exceso puede ser abuso).
+
+4. IP local
+
+172.8.3.41
+
+
+Get-ComputerInfo | Out-File ReconInfo.txt
+
+
+| Elemento | Detalle |
+| ----------------------------- | --------------------------------------------------------------- |
+| **Nombre del equipo** | DESKTOP-NTCUI6G |
+| **Usuario activo** | SALA |
+| **Propietario** | TIC |
+| **Sistema operativo** | Windows 11 Enterprise (24H2) |
+| **Versión** | 10.0.26100 (Build 26100.1) |
+| **Fecha instalación SO** | 15/07/2025 |
+| **Fabricante** | LENOVO |
+| **Modelo** | ThinkCentre M70q (11DUSH1D00) |
+| **Procesador** | Intel(R) Core(TM) i5-10400T CPU @ 2.00GHz (6 núcleos, 12 hilos) |
+| **RAM física instalada** | 16 GB |
+| **Tipo de sistema** | x64-based PC |
+| **BIOS** | LENOVO M2WKT5AA (fecha: 19/06/2023) |
+| **Modo de BIOS** | UEFI |
+| **Hyper-V** | Activo |
+| **Estado del sistema** | OK |
