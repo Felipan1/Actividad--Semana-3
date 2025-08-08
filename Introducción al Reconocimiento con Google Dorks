@@ -1,0 +1,67 @@
+¿Qué es un Google Dork?
+Un Google Dork es una consulta avanzada en el motor de búsqueda de Google que utiliza operadores específicos para encontrar información que no está fácilmente visible o indexada de forma común. Se usa para localizar datos sensibles, archivos ocultos, configuraciones expuestas, errores de seguridad, entre otros, aprovechando cómo Google indexa los sitios web.
+
+¿Por qué es útil en la etapa de reconocimiento?
+En la etapa de reconocimiento (o reconnaissance) dentro de pruebas de penetración o ciberinvestigación, los Google Dorks permiten obtener información clave sobre una organización sin necesidad de interactuar directamente con sus sistemas. Esto incluye:
+Encontrar subdominios, archivos confidenciales, correos, credenciales, etc.
+Descubrir posibles vulnerabilidades visibles públicamente.
+Recolectar datos con bajo riesgo de ser detectado (pasive reconnaissance).
+
+¿Qué significa "OSINT" y cómo se relaciona con los Dorks?
+OSINT significa Open Source Intelligence, o inteligencia de fuentes abiertas. Se refiere a la recopilación y análisis de información disponible públicamente (como en internet, redes sociales, bases de datos abiertas, etc.) con fines de investigación o seguridad.
+Los Google Dorks son una técnica de OSINT, ya que se usan para obtener información útil a partir de fuentes públicas (como sitios web indexados por Google), sin necesidad de acceso privilegiado.
+
+Menciona 3 operadores comunes utilizados en Google Dorks:
+site: – Restringe los resultados a un dominio específico.
+Ejemplo: site:example.com
+filetype: – Busca archivos de un tipo específico.
+Ejemplo: filetype:pdf
+intitle: – Busca palabras clave en el título de la página.
+Ejemplo: intitle:"login page"
+
+Buscar archivos excel públicos:
+Dork usado: filetype:xls site:drive.google.com
+Lo que encontré:
+Aparecen hojas de cálculo alojadas en Google Drive con acceso público. Algunas contienen listas de asistencia, inventarios, datos académicos o presupuestos. Se puede ver que muchas personas comparten documentos sin configurar adecuadamente los permisos.
+
+Buscar contraseñas filtradas en archivos de texto
+Dork usado: intext:"password" filetype:txt
+¿Qué tipo de contenido aparece?
+Se muestran archivos .txt con contenido como configuraciones de servidores, correos, y fragmentos que incluyen campos tipo username=, password=, etc.
+
+¿Viste ejemplos reales o solo genéricos?
+Algunos parecen reales, especialmente cuando están en dominios académicos o personales. Hay credenciales de bases de datos o correos electrónicos antiguos. Otros son ejemplos o plantillas.
+Buscar paneles de login expuestos
+Dork usado: intitle:"Login" inurl:admin
+¿Qué sitios aparecen?
+Aparecen páginas de inicio de sesión de routers, paneles de administración web (como WordPress, Joomla), cámaras IP, y páginas de empresas con URLs como /admin/login.
+
+¿Alguno es accesible sin contraseña?
+Ninguno permitió acceso directo sin login, pero algunos muestran formularios inseguros o sin HTTPS, lo que representa riesgo.
+
+Buscar cámaras de vigilancia abiertas
+Dork usado: inurl:"/view.shtml"
+¿Pudiste ver alguna cámara en vivo?
+Sí, algunas cámaras estaban activas y transmitían en vivo.
+¿De qué país parecían provenir?
+Se podían ver ubicaciones en EE. UU., Japón y algunos países europeos (según nombres de ciudades en el título de la página o señales visuales como autos o letreros).
+
+Crear 2 Google Dorks propios
+Dork 1: intitle:"index of" "backup"
+¿Qué información buscabas?: Buscar directorios públicos que contengan respaldos de sitios o bases de datos.
+¿Fue exitoso?: Sí, algunos directorios mostraban archivos .zip, .sql y .tar.gz accesibles.
+
+
+Dork 2: filetype:pdf "confidential" site:.edu
+¿Qué información buscabas?: Documentos etiquetados como confidenciales en sitios educativos.
+¿Fue exitoso?: Parcialmente. Aparecieron documentos con marcas de “confidencial”, pero eran en su mayoría material académico sin datos sensibles.
+
+Reflexión final
+Esta actividad me pareció muy interesante porque me mostró lo fácil que es encontrar información que muchas personas o empresas dejan visible sin darse cuenta. Me ayudó a entender que Google puede mostrar cosas que no deberían estar públicas.
+Creo que dejar información sin proteger en internet puede causar muchos problemas, como que te roben datos personales, contraseñas o información importante de una empresa.
+Para evitar que sus datos aparezcan en este tipo de búsquedas, personas y empresas deberían:
+- Configurar correctamente los permisos de archivos en la nube.
+- No incluir contraseñas en archivos de texto sin cifrado.
+- Utilizar firewalls y restringir accesos a paneles de administración.
+- Evitar usar nombres obvios para backups o archivos confidenciales.
+- Usar protocolos seguros como HTTPS.
